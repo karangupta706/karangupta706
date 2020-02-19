@@ -8,12 +8,20 @@
 #    the product of the 3 numbers with a label
 read -p "What is the first input?" firstnum
 read -p "What is the second input?" secondnum
-read -p "What is the third input" thirdnum
-sum=$(( firstnum + secondnum + thirdnum))
-product=$((firstnum * secondnum * thirdnum))
+
+sum=$(( firstnum + secondnum))
+subtraction=$(( firstnum - secondnum))
+multiplication=$((firstnum * secondnum))
+dividend=$((firstnum / secondnum))
+remainder=$((firstnum % secondnum))
+exponent=$((firstnum ** secondnum))
+fpdividend=$(awk "BEGIN{printf \"%.2f\", $firstnum/$secondnum}")
 
 cat <<EOF
-the sum of the 3 numbers provided by the user is $sum
-the product of the 3 numbers by user is $product
-
+$firstnum plus $secondnum is $sum
+$secondnum subtracted by $firstnum is $subtraction
+$firstnum multiplied by $secondnum is $multiplication
+$firstnum to the power of $secondnum is $exponent
+$firstnum divided by $secondnum is $dividend and the remainder is $remainder
+  - More precisely, it is $fpdividend
 EOF

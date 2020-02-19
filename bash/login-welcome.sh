@@ -35,11 +35,3 @@ then
 else
   echo "It is $date on weekday"
 fi
-display=$(cat <<EOF
-welcome to planet $hostname, $name
-EOF
-)
-cat <<EOF
-$(cowsay $display)
-
-EOF
