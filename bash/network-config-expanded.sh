@@ -66,6 +66,12 @@ EOF
 interfaces=$interfaces=$(ifconfig | grep -w -o '^[^ ][^ ]*:'| tr -d :)
 
 for interface in $interfaces; do
+  interface=$(route -n | grep '^0.0.0.0' | awk '{print $2}')
+  if [[ $interface = lo* ]] ; then
+    continue
+    fi
+  done
+
 
     # Find an address and hostname for the interface being summarized
     # we are assuming there is only one IPV4 address assigned to this interface
